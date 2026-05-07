@@ -1,0 +1,125 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Romantic birthday theme based on #727594 */
+:root {
+  --background: #0a0a12;
+  --foreground: #f0f0f5;
+  --card: #12121c;
+  --card-foreground: #f0f0f5;
+  --popover: #12121c;
+  --popover-foreground: #f0f0f5;
+  --primary: #727594;
+  --primary-foreground: #ffffff;
+  --secondary: #1a1a28;
+  --secondary-foreground: #e0e0eb;
+  --muted: #1e1e2e;
+  --muted-foreground: #9090a8;
+  --accent: #8b8eb0;
+  --accent-foreground: #ffffff;
+  --destructive: #ff6b8a;
+  --destructive-foreground: #ffffff;
+  --border: #2a2a3c;
+  --input: #1e1e2e;
+  --ring: #727594;
+  --chart-1: #727594;
+  --chart-2: #8b8eb0;
+  --chart-3: #a5a8c8;
+  --chart-4: #ff8fa3;
+  --chart-5: #ffb3c1;
+  --radius: 0.75rem;
+  --glow: #727594;
+  --star: #ffffff;
+  --heart: #ff6b8a;
+}
+
+@theme inline {
+  --font-sans: 'Cormorant Garamond', 'Georgia', serif;
+  --font-serif: 'Cormorant Garamond', 'Georgia', serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-glow: var(--glow);
+  --color-star: var(--star);
+  --color-heart: var(--heart);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom animations and utilities */
+.glow-text {
+  text-shadow: 0 0 20px rgba(114, 117, 148, 0.5), 0 0 40px rgba(114, 117, 148, 0.3);
+}
+
+.glow-box {
+  box-shadow: 0 0 30px rgba(114, 117, 148, 0.3), 0 0 60px rgba(114, 117, 148, 0.1);
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.heart-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(114, 117, 148, 0) 0%,
+    rgba(114, 117, 148, 0.3) 50%,
+    rgba(114, 117, 148, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
